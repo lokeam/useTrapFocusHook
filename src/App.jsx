@@ -1,33 +1,21 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import Modal from "./components/modal";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
 
+  console.log('isOpen: ', isOpen);
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" rel="noreferrer" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" rel="noreferrer" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1 className="read-the-docs">
+        Modal Example
+      </h1>
+      <button onClick={()=> setIsOpen(true)}>Open Modal</button>
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <p>Modal content:</p>
+        <p>Donec nec quam ut justo dictum varius. Aliquam mollis laoreet ullamcorper. Duis non neque a augue tempus consequat sit amet a neque. Ut et fringilla dolor, in malesuada velit. Pellentesque dapibus id justo eget condimentum. Sed finibus sem et euismod sagittis. Pellentesque efficitur elit posuere nisl eleifend aliquam. Duis tincidunt luctus varius. Donec neque enim, malesuada sed eros quis, consectetur vehicula augue. Cras at dolor hendrerit, imperdiet lorem et, ullamcorper elit. Suspendisse at mauris a lorem viverra euismod. Suspendisse mattis lobortis efficitur. </p>
+      </Modal>
     </>
   );
 }
