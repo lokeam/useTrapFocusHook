@@ -11,14 +11,27 @@
   -- take keyboard handler out of hook
 */
 
-import { useCallback } from "react";
+import { useCallback, useRef } from "react";
 
 export const useFocusTrap = () => {
 
+  const allFocusableRefs = useRef(null);
+
+  const addRefsToFocusableElements = useCallback(
+    (focusableElementArray) => {
+      allFocusableRefs.current = focusableElementArray;
+
+      // set initial focus
+      allFocusableRefs.current[0].focus();
+    },
+    []
+  );
+
   const trapFocusWithinElement = useCallback(
     (parentElement) => {
-      const focusableElArr = getAllFocusableElements(parentElement);
-      console.log('focusableElArr: ', focusableElArr);
+      const allFocusableElements = getAllFocusableElements(parentElement);
+
+      return addRefsToFocusableElements(allFocusableElements);
     },
     []
   );
