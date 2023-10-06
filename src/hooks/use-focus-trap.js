@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useRef } from "react";
 
+const FOCUSABLE_ELEMENTS = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
 const defaultOptions = {
   isAlert: false,
   isOpen: false,
@@ -49,9 +51,7 @@ export const useFocusTrap = (customOptions) => {
   const getAllFocusableElements = (parentElement) => {
     if (!parentElement) return null;
     return Array.from(
-      parentElement.querySelectorAll(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-      )
+      parentElement.querySelectorAll(FOCUSABLE_ELEMENTS)
     );
   };
 
