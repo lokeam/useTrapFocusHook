@@ -6,7 +6,7 @@ import './modal.css';
 
 const Modal = ( { isOpen, children, onClose } ) => {
   
-  const { trapFocusWithinElement } = useFocusTrap();
+  const { trapFocusWithinElement } = useFocusTrap(isOpen);
 
   if (!isOpen) return null;
 

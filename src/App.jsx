@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <h4 className="read-the-docs">
-        Traping focus within Modal
+        Trapping focus within a Modal
       </h4>
       <button onClick={()=> setIsOpen(true)}>Open Modal</button>
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
