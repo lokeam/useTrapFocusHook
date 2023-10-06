@@ -4,17 +4,20 @@ import "./App.css";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
-
-  console.log('isOpen: ', isOpen);
+  const EXAMPLE_URL_1 = 'https://www.google.com';
+  
   return (
     <>
-      <h1 className="read-the-docs">
-        Modal Example
-      </h1>
+      <h4 className="read-the-docs">
+        Traping focus within Modal
+      </h4>
       <button onClick={()=> setIsOpen(true)}>Open Modal</button>
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-        <p>Modal content:</p>
-        <p>Donec nec quam ut justo dictum varius. Aliquam mollis laoreet ullamcorper. Duis non neque a augue tempus consequat sit amet a neque. Ut et fringilla dolor, in malesuada velit. Pellentesque dapibus id justo eget condimentum. Sed finibus sem et euismod sagittis. Pellentesque efficitur elit posuere nisl eleifend aliquam. Duis tincidunt luctus varius. Donec neque enim, malesuada sed eros quis, consectetur vehicula augue. Cras at dolor hendrerit, imperdiet lorem et, ullamcorper elit. Suspendisse at mauris a lorem viverra euismod. Suspendisse mattis lobortis efficitur. </p>
+        <div className="modal_heading">Alert Dialog Example</div>
+        <div className="text_wrapper">
+          <p>Nam eu nulla sit amet quam dapibus rutrum eu in ipsum.</p>
+          <p>Donec nec quam ut <a href={EXAMPLE_URL_1} rel="noreferrer" target="_blank">justo dictum varius</a>.</p>
+        </div>
       </Modal>
     </>
   );
